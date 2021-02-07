@@ -24,7 +24,8 @@ module.exports = {
                 status: true,
                 method: req.method,
                 url: req.url,
-                mahasiswa
+                mahasiswa,
+                date: req.time.toString()
             })
         } else {
             res.json({
@@ -43,12 +44,14 @@ module.exports = {
                 method: req.method,
                 url: req.url,
                 message: `data mahasiswa dengan nim:${nim}`,
-                dataMhs
+                dataMhs,
+                date: req.time.toString()
             })
         } else{
             res.json({
                 status: false,
-                message: `mahasiswa dengan nim ${nim} belum ada data`
+                message: `mahasiswa dengan nim ${nim} belum ada data`,
+                date: req.time.toString()
             })
         }       
     },
@@ -59,7 +62,8 @@ module.exports = {
             data: mahasiswa,
             method: req.method,
             url: req.url,
-            message: 'Data mahasiswa berhasil disimpan'
+            message: 'Data mahasiswa berhasil disimpan',
+            date: req.time.toString()
         })
     },
     updateMahasiswa: (req, res)=>{
@@ -79,7 +83,8 @@ module.exports = {
             method: req.method,
             mahasiswa,
             message: `Mahasiswa dengan NIM: ${nim} berhasil di update`,
-            url: req.url
+            url: req.url,
+            date: req.time.toString()
         })
     },
     deleteMahasiswa: (req,res)=>{
@@ -90,7 +95,8 @@ module.exports = {
             method: req.method,
             url: req.url,
             message: `Mahasiswa dengan nim ${nim} berhasil dihapus`,
-            mahasiswa
+            mahasiswa,
+            date: req.time.toString()
         })
     }
 };
